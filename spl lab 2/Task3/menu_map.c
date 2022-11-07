@@ -52,7 +52,7 @@ char xprt(char c)
 /* xprt prints the value of c in a hexadecimal representation followed by a new line, and returns c unchanged. */
 {
     if(c>=0x20&&c<=0x7E){
-        printf("%0x\n",c);
+        printf("%0X\n",c);
     } else {
         printf(".\n");
     }
@@ -115,16 +115,17 @@ int main(int argc, char **argv){
         }
         int menu_option=atoi(input);//the option the user choose
         */
-        printf("%d",option);
+        //printf("%d",option);
         printf("\n\n");
-        bool within_bounds=option>=0 && option<size_of_menu;//flag for within bounds values or not
+        bool within_bounds=option>=0 && option<size_of_menu-1;//flag for within bounds values or not
         if(within_bounds){
             printf("Within bounds\n");
             carray = map(carray, 5, menu[option].fun);
+            printf("Done.\n\n");
         }
         else{
             printf("Not within bounds\n");
-            quit(0);
+            exit(0);
         }
     }
     
